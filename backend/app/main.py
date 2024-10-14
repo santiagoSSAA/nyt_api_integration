@@ -1,14 +1,17 @@
+
+import asyncio
 from fastapi import FastAPI
+import uvicorn
+
 from app.api.routes import router as api_router
-from app.utils.logging import setup_logging
+from app.services.tasks import (
+    scheduler,
+    fetch_nyt_books
+)
+from app.utils.logging import logger
 
-# Configuración de logging
-setup_logging()
 
-# Crear la instancia de FastAPI
 app = FastAPI(title="Book Integration API")
-
-# Incluir las rutas del API
 app.include_router(api_router, prefix="/api")
 
 
@@ -16,7 +19,10 @@ app.include_router(api_router, prefix="/api")
 async def read_root():
     return {"message": "Welcome to the Book Integration API"}
 
-# Ejecución del servidor (solo si se ejecuta este archivo directamente)
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(fetch_nyt_books())
+
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
