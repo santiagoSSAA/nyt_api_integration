@@ -14,15 +14,16 @@ class App extends Component {
         };
     }
 
-    componentDidMount() {
-        // Configurar intervalo para refrescar la página
-        this.interval = setInterval(() => {
-            window.location.reload(); // Recargar la página
-        }, 5000); // Intervalo de 5 segundos
+    async componentDidMount() {
+        this.loadGenres();  // Cargar géneros al inicio
+        this.interval = setInterval(this.loadGenres, 15000);
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.interval);  // Limpiar intervalo al desmontar
     }
 
-    async componentDidMount() {
-        // Cargar géneros al inicio
+    loadGenres = async () => {
         try {
             const response = await fetch('http://localhost:8000/api/books/genres');
             const data = await response.json();
@@ -31,12 +32,14 @@ class App extends Component {
             console.error('Error al cargar géneros:', error);
             this.setState({ loading: false });
         }
-    }
+    };
 
     handleGenreChange = async (selectedGenre) => {
+        const formattedGenre = selectedGenre.trim().replace(/\s+/g, '_');
         this.setState({ loading: true });
         try {
-            const response = await fetch(`http://localhost:8000/api/books/${selectedGenre}/best-sellers`);
+            console.log(`${selectedGenre} ${formattedGenre}`);
+            const response = await fetch(`http://localhost:8000/api/books/${formattedGenre}/best-sellers`);
             const data = await response.json();
             this.setState({ bestSellers: data.books, loading: false });
         } catch (error) {
