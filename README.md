@@ -47,7 +47,7 @@ This project comes fully containerized, so you can run it with a single command:
 docker-compose up --build
 ```
 
-This will build and launch both the backend (FastAPI) and the frontend (React).
+This will build and launch both the backend (FastAPI) and the frontend (React). Ensure you have Docker installed and running on your machine before executing this command.
 
 ### 4. 🌐 Access the application:
 
@@ -116,7 +116,7 @@ The project includes basic tests to ensure the core functionalities work correct
 1. **Unit tests** for critical functions.
 2. **Integration tests** to verify that the frontend and backend communicate properly.
 
-To run the tests, use the following command inside the FastAPI container (replace `repo-backend-1` with the actual container name if it differs on your setup):
+**Note:** Ensure the project is running before executing the tests. To run the tests, use the following command inside the FastAPI container (replace `repo-backend-1` with the actual container name if it differs on your setup):
 
 ```bash
 docker exec -it repo-backend-1 /bin/sh -c "PYTHONPATH=/app pytest"
