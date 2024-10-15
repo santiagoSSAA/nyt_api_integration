@@ -1,0 +1,25 @@
+/* App.css */
+
+/* Estilo general de la aplicación */
+.App {
+    max-width: 1280px; /* Ancho máximo de la aplicación */
+    margin: 0 auto; /* Centrar la aplicación */
+    padding: 20px; /* Espaciado interior */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #343a40; /* Color de texto oscuro */
+}
+
+/* Estilo del contenedor principal durante la carga */
+.loading-indicator {
+    display: flex;
+    justify-content: center; /* Centrar contenido */
+    align-items: center; /* Alinear verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la vista */
+}
+
+/* Espaciado adicional para mejorar la estética */
+h2 {
+    margin: 20px 0; /* Espacio arriba y abajo de los títulos */
+    text-align: center; /* Centrar los títulos */
+    color: #343a40; /* Color del texto de los títulos */
+}

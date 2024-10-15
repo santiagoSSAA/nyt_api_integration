@@ -1,6 +1,8 @@
 
 import asyncio
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 import uvicorn
 
 from app.api.routes import router as api_router
@@ -12,12 +14,21 @@ from app.utils.logging import logger
 
 
 app = FastAPI(title="Book Integration API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(api_router, prefix="/api")
 
 
 @app.get("/")
 async def read_root():
-    return {"message": "Welcome to the Book Integration API"}
+    return JSONResponse(content={"message": "Welcome to the Book Integration API, yey!"})
 
 
 @app.on_event("startup")

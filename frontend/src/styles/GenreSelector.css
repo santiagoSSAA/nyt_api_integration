@@ -1,0 +1,38 @@
+/* GenreSelector.css */
+
+/* Contenedor del selector de género */
+.genre-selector {
+    margin: 20px 0; /* Espaciado vertical */
+    display: flex; /* Usar flex para centrar el contenido */
+    flex-direction: column; /* Alinear los elementos en columna */
+    align-items: center; /* Centrar el contenido */
+}
+
+/* Estilo del título del selector */
+.genre-selector h2 {
+    font-size: 1.5em; /* Tamaño de fuente para el título */
+    color: #343a40; /* Color del texto */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* Estilo del elemento select */
+.genre-selector select {
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ced4da; /* Borde del select */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: border-color 0.3s; /* Transición de color del borde */
+}
+
+/* Efecto hover en el elemento select */
+.genre-selector select:hover {
+    border-color: #80bdff; /* Color del borde al pasar el mouse */
+}
+
+/* Mensaje de carga */
+.genre-selector p {
+    color: #6c757d; /* Color más claro para el mensaje de carga */
+    text-align: center; /* Centrar texto */
+}

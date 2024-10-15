@@ -1,0 +1,33 @@
+/* BookCard.css */
+
+/* Estilos generales de la tarjeta del libro */
+.book-card {
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    border: 1px solid #dee2e6; /* Borde de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición para hover */
+    margin: 15px; /* Margen alrededor de la tarjeta */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+}
+
+/* Imagen del libro */
+.book-image {
+    width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+    height: auto; /* Mantener la relación de aspecto */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+/* Título del libro */
+.book-title {
+    font-size: 1.5em; /* Tamaño de fuente grande */
+    margin: 10px 0; /* Espacio arriba y abajo del título */
+    color: #343a40; /* Color del texto */
+}
+
+/* Autor del libro */
+.book-author {
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+    margin: 5px 0; /* Espacio

@@ -1,0 +1,33 @@
+/* LoadingIndicator.css */
+
+/* Estilos generales del indicador de carga */
+.loading-indicator {
+    display: flex;
+    flex-direction: column; /* Para alinear el texto debajo del spinner */
+    justify-content: center;
+    align-items: center; /* Centrar el contenido */
+    height: 100vh; /* Ocupa toda la altura de la vista */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #343a40; /* Color de texto oscuro */
+    font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Spinner */
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Borde claro */
+    border-left-color: #007bff; /* Color del borde del spinner */
+    border-radius: 50%; /* Forma circular */
+    width: 60px; /* Ancho del spinner */
+    height: 60px; /* Alto del spinner */
+    animation: spin 1s linear infinite; /* Animación de rotación */
+}
+
+/* Animación de rotación */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Comienza en 0 grados */
+    }
+    100% {
+        transform: rotate(360deg); /* Rota hasta 360 grados */
+    }
+}

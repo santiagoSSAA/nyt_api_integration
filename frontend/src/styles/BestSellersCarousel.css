@@ -1,0 +1,118 @@
+/* BestSellersCarousel.css */
+
+/* Estilo del contenedor principal del carrusel */
+.carousel-container {
+    margin: 20px 0; /* Espaciado vertical */
+}
+
+/* Estilo del título del carrusel */
+.carousel-container h2 {
+    font-size: 1.8em; /* Tamaño del título */
+    text-align: center; /* Centrar el texto */
+    color: #343a40; /* Color del texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Estilo de cada item del carrusel */
+.carousel-item {
+    background-color: #ffffff; /* Fondo blanco para cada tarjeta */
+    border: 1px solid #dee2e6; /* Borde de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 10px; /* Espaciado interno */
+    transition: transform 0.3s; /* Animación al pasar el mouse */
+}
+
+/* Efecto hover en cada item del carrusel */
+.carousel-item:hover {
+    transform: scale(1.05); /* Escalar ligeramente al pasar el mouse */
+}
+
+/* Estilo de la imagen del libro */
+.carousel-item img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    border-radius: 8px; /* Bordes redondeados en la imagen */
+}
+
+/* Estilo del título del libro */
+.carousel-item h3 {
+    font-size: 1.2em; /* Tamaño del título del libro */
+    margin: 10px 0; /* Espacio arriba y abajo del título */
+}
+
+/* Estilo del autor y rango */
+.carousel-item p {
+    margin: 5px 0; /* Espacio vertical entre párrafos */
+    color: #6c757d; /* Color de texto más claro */
+}
+
+/* Estilo del enlace de compra */
+.carousel-item a {
+    display: inline-block; /* Hacer que el enlace se muestre como un bloque */
+    margin-top: 10px; /* Espacio encima del enlace */
+    padding: 8px 15px; /* Espaciado interno */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border-radius: 4px; /* Bordes redondeados */
+    text-decoration: none; /* Quitar subrayado */
+    transition: background-color 0.3s; /* Transición del color de fondo */
+}
+
+/* Efecto hover en el enlace de compra */
+.carousel-item a:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+/* Personalización de las flechas del carrusel */
+.slick-prev,
+.slick-next {
+    background-color: #343a40; /* Color oscuro para las flechas */
+    color: white; /* Color del ícono de la flecha */
+    border-radius: 50%; /* Bordes redondeados para darle un aspecto de botón */
+    width: 35px; /* Ancho de la flecha */
+    height: 35px; /* Altura de la flecha */
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+    opacity: 0.8; /* Transparencia inicial */
+    transition: opacity 0.3s, background-color 0.3s; /* Transiciones */
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    opacity: 1; /* Opacidad completa al pasar el mouse */
+    background-color: #495057; /* Color de fondo más oscuro */
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: white; /* Color del icono de la flecha */
+    font-size: 1.5em; /* Tamaño del icono */
+}
+
+/* Posición personalizada para las flechas */
+.slick-prev {
+    left: -45px; /* Ajuste de la posición hacia la izquierda */
+}
+
+.slick-next {
+    right: -45px; /* Ajuste de la posición hacia la derecha */
+}
+
+/* Estilo del botón de Amazon */
+.amazon-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff9900; /* Color de Amazon */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none; /* Eliminar subrayado */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón de Amazon */
+.amazon-button:hover {
+    background-color: #e68a00; /* Color más oscuro al pasar el ratón */
+}
