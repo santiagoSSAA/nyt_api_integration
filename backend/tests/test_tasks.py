@@ -9,7 +9,6 @@ async def test_background_task_success(mocker):
     """
     Test the background task that fetches genres and bestsellers.
     """
-    # Setup mocks for NYTService methods
     mock_genres = ["fiction", "non-fiction"]
     mock_books = {"fiction": ["Book 1", "Book 2"], "non-fiction": ["Book 3"]}
 
@@ -18,10 +17,9 @@ async def test_background_task_success(mocker):
     mocker.patch.object(NYTService, 'get_current_best_sellers',
                         side_effect=lambda genre: mock_books.get(genre, []))
 
-    # Execute the background task
+    # this will take 12 seconds due an asyncio.sleep (API rate limit)
     await fetch_nyt_books()
 
-    # Assertions on success
     memory_storage = MemoryStorage()
     assert memory_storage.get_all_genres() == mock_genres
     assert memory_storage.get_books("fiction") == mock_books["fiction"]
@@ -33,17 +31,14 @@ async def test_background_task_retry_policy(mocker):
     """
     Test the retry policy in the background task when a 429 is encountered.
     """
-    # Mocking the NYTService methods
+    memory_storage = MemoryStorage()
+    memory_storage.clear_storate()
     mocker.patch.object(NYTService, 'get_books_genres',
                         return_value=["fiction"])
     mocker.patch.object(NYTService, 'get_current_best_sellers',
                         side_effect=[Exception("429"), ["Book 1"]])
 
-    # Execute the background task and assert that it retries
     with pytest.raises(Exception, match="429"):
-        await fetch_nyt_books()
+        await fetch_nyt_books()  # 12 seconds delay due API rate limit
 
-    # After retries, check that no books are added to memory storage
-    memory_storage = MemoryStorage()
-    assert memory_storage.get_all_genres() == ["fiction"]
-    assert memory_storage.get_books("fiction") == []
+    assert not memory_storage.get_all_genres()

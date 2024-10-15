@@ -25,8 +25,8 @@ Follow these steps to run the project on your local machine:
 ### 1. 📦 Clone the repository:
 
 ```bash
-git clone https://github.com/username/nyt-amazon-book-finder.git
-cd nyt-amazon-book-finder
+git clone https://github.com/santiagoSSAA/nyt_api_integration.git
+cd nyt_api_integration
 ```
 
 ### 2. 📄 Create a `.env` file for the NYT API key:
@@ -116,10 +116,10 @@ The project includes basic tests to ensure the core functionalities work correct
 1. **Unit tests** for critical functions.
 2. **Integration tests** to verify that the frontend and backend communicate properly.
 
-To run the tests, use the following command inside the FastAPI container:
+To run the tests, use the following command inside the FastAPI container (replace `repo-backend-1` with the actual container name if it differs on your setup):
 
 ```bash
-docker exec -it backend pytest
+docker exec -it repo-backend-1 /bin/sh -c "PYTHONPATH=/app pytest"
 ```
 
 ---

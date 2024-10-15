@@ -16,6 +16,8 @@ async def get_book_genre_list():
 async def get_best_sellers_by_genre(genre: str):
     if not genre:
         return HTTPException(status_code=400, detail="No genre provided")
+    if genre not in memory_storage.get_all_genres():
+        return HTTPException(status_code=404, detail="Genre not found")
     genre = genre.replace("_", " ")
     books = memory_storage.get_books(genre=genre)
     return JSONResponse(content={"books": books if books else []})
