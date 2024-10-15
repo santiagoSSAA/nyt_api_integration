@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/style.css'; // Asegúrate de que la ruta sea correcta
+import './styles/style.css';
 import GenreSelector from './components/GenreSelector';
 import BestSellersCarousel from './components/BestSellersCarousel';
 import LoadingIndicator from './components/LoadingIndicator';
@@ -9,18 +9,18 @@ class App extends Component {
         super(props);
         this.state = {
             genres: [],
-            bestSellers: [], // Inicializa como un array vacío
+            bestSellers: [],
             loading: true,
         };
     }
 
     async componentDidMount() {
-        this.loadGenres();  // Cargar géneros al inicio
+        this.loadGenres();
         this.interval = setInterval(this.loadGenres, 15000);
     }
     
     componentWillUnmount() {
-        clearInterval(this.interval);  // Limpiar intervalo al desmontar
+        clearInterval(this.interval); 
     }
 
     loadGenres = async () => {
@@ -58,7 +58,7 @@ class App extends Component {
                 ) : (
                     <div>
                         <GenreSelector genres={genres} onGenreChange={this.handleGenreChange} />
-                        {bestSellers && bestSellers.length > 0 && ( // Verificar si hay best sellers antes de renderizar el carrusel
+                        {bestSellers && bestSellers.length > 0 && (
                             <BestSellersCarousel books={bestSellers} />
                         )}
                     </div>
