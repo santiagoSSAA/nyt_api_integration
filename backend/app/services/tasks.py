@@ -2,27 +2,12 @@
 
 import asyncio
 
-from apscheduler.schedulers.background import BackgroundScheduler
-
 from app.utils.logging import logger
 from app.services.nyt_service import NYTService
 from app.services.memory_storage import MemoryStorage
 
 memory_storage = MemoryStorage()
 nyt_service = NYTService()
-
-
-class SchedulerSingleton:
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = BackgroundScheduler()
-            cls._instance.start()
-        return cls._instance
-
-
-scheduler = SchedulerSingleton()
 
 
 async def fetch_nyt_books():

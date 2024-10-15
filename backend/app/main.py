@@ -7,10 +7,8 @@ import uvicorn
 
 from app.api.routes import router as api_router
 from app.services.tasks import (
-    scheduler,
     fetch_nyt_books
 )
-from app.utils.logging import logger
 
 
 app = FastAPI(title="Book Integration API")

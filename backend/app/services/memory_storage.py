@@ -23,3 +23,6 @@ class MemoryStorage:
     def delete_genre(self, genre: str):
         if genre in self.storage:
             del self.storage[genre]
+
+    def clear_storate(self):
+        self.storage.clear()
